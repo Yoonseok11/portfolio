@@ -35,14 +35,15 @@ interventional samples, allowing simulation of outcome trajectories under altern
 
 ## Problem setup
 
-For a multivariate time-series $$\mathcal{X}\in\mathbb{R}^{T\times d}$$, we assume its data-generating process admits
-a **Markovian**, **causally stationary** SCM, which characterizes the process through structural assignments with
-exogenous variables:
+We consider a multivariate time-series $$\mathcal{X}=(\mathbf{X}_1,\ldots,\mathbf{X}_T)\in\mathbb{R}^{T\times d}$$
+whose data-generating process follows a **Markovian structural causal model (SCM)**. At each time step, every
+component is generated from its causal parents and a corresponding exogenous disturbance, with the disturbances
+jointly independent. We further assume **causal stationarity**: the causal relationships governing the process are
+invariant under shifts in time, so the same dependency pattern recurs throughout the series.
 
-$$X^j = f^j\!\left(\mathbf{Pa}^j,\, Z^j\right), \qquad j = 1,\ldots,d$$
-
-**Window causal graph** $$\mathcal{G}$$ — induced by the SCM and assumed given. For each variable it distinguishes
-two kinds of parents:
+With a maximum time lag of $$\tau$$, this recurring structure can be summarized by a **window causal graph**
+$$\mathcal{G}$$ over a window of length $$\tau+1$$. The graph is induced by the SCM and assumed to be given. For a
+variable $$X^j_t$$, it distinguishes two kinds of parents:
 
 - $$\mathrm{Pa}^{<}_{\mathcal{G}}(X^j_t)$$ — **time-lagged parents**
 - $$\mathrm{Pa}^{=}_{\mathcal{G}}(X^j_t)$$ — **contemporaneous parents**
@@ -57,10 +58,16 @@ two kinds of parents:
   parents of a target variable (blue).
 </div>
 
-**Target estimand** — the distribution of the future outcome $$Y_t$$ under a hypothetical intervention sequence,
-conditioned on the history:
+Suppose that the history $$\bar{\mathbf{x}}_m=(\mathbf{x}_1,\ldots,\mathbf{x}_m)$$ has been observed through time
+$$m$$ and that a treatment sequence $$\underline{a}_{m+1}=(a_{m+1},\ldots,a_t)$$ is imposed thereafter. Our target
+estimand is the interventional distribution of the future outcome $$Y_t$$ under this treatment sequence:
 
 $$P\!\left(Y_t(\underline{a}_{m+1}) \mid \bar{\mathbf{x}}_m\right), \qquad t \geq m+1$$
+
+More generally, the framework supports both **conditional queries**, obtained by conditioning on the full observed
+history or selected pre-intervention information, and **marginal queries**, obtained by integrating over that
+information. The experiments below evaluate two representative cases: the marginal query
+$$P(Y_t(\underline{a}_{m+1}))$$ and the history-adjusted query shown above.
 
 ## Method
 
