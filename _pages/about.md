@@ -2,33 +2,140 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: AI Researcher / AI Engineer at <strong>LG CNS</strong>, Agentic AI Business Team.
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Seoul, South Korea</p>
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
 announcements:
-  enabled: true # includes a list of news items
+  enabled: false # includes a list of news items
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
-  enabled: true
+  enabled: false
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I work on **Causal AI** — causal discovery, causal generative models, and causal effect estimation.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+Since January 2026 I have been an **AI Researcher / AI Engineer at LG CNS**, on the Agentic AI Business Team,
+where I do research on AI in academia and industry and build agentic AI products — general-purpose prebuilt agents
+and MCP tools.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I completed my **M.S. in Data Science at Seoul National University** (Feb 2026) in the Causality Lab, advised by
+Prof. Sanghack Lee, where my research covered causal inference with causal generative models in time-series, and
+causal discovery — both scalable causal discovery and causal discovery with LLM prior knowledge — much of it in
+collaboration with **LG AI Research**. Before that I received a **B.S. in Engineering from Korea University**
+(Feb 2024), majoring in Biomedical Engineering with an interdisciplinary major in Artificial Intelligence.
+
+<style>
+  .home-cards .btn {
+    display: inline-block;
+    margin: 0 0.4rem 0.4rem 0;
+    padding: 0.25rem 1rem;
+    font-size: 0.8rem;
+    border: 1px solid var(--global-text-color);
+    border-radius: 0.25rem;
+    color: var(--global-text-color);
+    text-decoration: none;
+  }
+  .home-cards a.btn:hover {
+    color: var(--global-theme-color);
+    border-color: var(--global-theme-color);
+  }
+  .home-cards .card-title a {
+    color: var(--global-theme-color);
+    text-decoration: none;
+  }
+  .home-cards .card-img {
+    padding: 0.6rem;
+  }
+</style>
+
+<!-- The about layout floats the profile column right; without this the first card
+     wraps beside it and renders narrower than the rest. -->
+<div style="clear: both;"></div>
+
+## Research
+
+<div class="home-cards">
+  {% assign featured_research = site.research | sort: "importance" %}
+  {% for item in featured_research %}
+    <div class="card hoverable mb-3">
+      <div class="row no-gutters align-items-center">
+        {% if item.img %}
+          <div class="col-md-4">
+            <a href="{{ item.url | relative_url }}">
+              {% include figure.liquid loading="eager" path=item.img alt=item.title class="card-img" sizes="(min-width: 768px) 33vw, 100vw" %}
+            </a>
+          </div>
+        {% endif %}
+        <div class="{% if item.img %}col-md-8{% else %}col-md-12{% endif %}">
+          <div class="card-body">
+            <h3 class="card-title mb-1">
+              <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            </h3>
+            {% if item.venue %}
+              <p class="card-text mb-2"><small class="text-muted">{{ item.venue }}</small></p>
+            {% endif %}
+            <p class="card-text">{{ item.description }}</p>
+            <div class="mt-2">
+              <a href="{{ item.url | relative_url }}" class="btn btn-sm z-depth-0" role="button">Details</a>
+              {% if item.paper_url %}
+                <a href="{{ item.paper_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener">Paper</a>
+              {% endif %}
+              {% if item.code_url %}
+                <a href="{{ item.code_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener">Code</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+## Projects
+
+<div class="home-cards">
+  {% assign featured_projects = site.projects | sort: "importance" %}
+  {% for item in featured_projects %}
+    <div class="card hoverable mb-3">
+      <div class="row no-gutters align-items-center">
+        {% if item.img %}
+          <div class="col-md-4">
+            <a href="{{ item.url | relative_url }}">
+              {% include figure.liquid loading="eager" path=item.img alt=item.title class="card-img" sizes="(min-width: 768px) 33vw, 100vw" %}
+            </a>
+          </div>
+        {% endif %}
+        <div class="{% if item.img %}col-md-8{% else %}col-md-12{% endif %}">
+          <div class="card-body">
+            <h3 class="card-title mb-1">
+              <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            </h3>
+            {% if item.period %}
+              <p class="card-text mb-2"><small class="text-muted">{{ item.period }}</small></p>
+            {% endif %}
+            <p class="card-text">{{ item.description }}</p>
+            <div class="mt-2">
+              <a href="{{ item.url | relative_url }}" class="btn btn-sm z-depth-0" role="button">Details</a>
+              {% if item.code_url %}
+                <a href="{{ item.code_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener">Code</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

@@ -1,4 +1,9 @@
 nbconvert
 pyyaml
-rendercv[full]
+# Pinned: RenderCV tightens its schema between minor releases (2.4 raised the
+# required Python to 3.12; a later release started rejecting the extra top-level
+# keys al-folio's _data/cv.yml used to carry). An unpinned install silently
+# upgrades and breaks the "Render a CV" workflow. Bump deliberately, and re-run
+# `rendercv render _data/cv.yml --settings assets/rendercv/settings.yaml` first.
+rendercv[full]==2.8
 scholarly

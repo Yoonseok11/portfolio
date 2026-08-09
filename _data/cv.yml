@@ -1,189 +1,180 @@
+# NOTE: this file must stay valid against the RenderCV schema — the "Render a CV"
+# GitHub Action runs `rendercv render` on it. RenderCV rejects unknown top-level
+# keys, so do NOT add `label`, `image`, `summary`, or `address` here: they are
+# al-folio-only fields and each one fails the build with
+#   "This field is unknown for this object. Please remove it."
+# Put that content in a `sections:` entry instead (as done with Summary below).
+#
+# NOTE ON SECTION NAMES: the website CV page (al_folio_cv gem) only has dedicated
+# templates for Education, Experience, Volunteer, Awards, Publications, Skills,
+# Languages, Interests, Certificates, Projects and References. Any other section
+# name falls back to a generic renderer that ONLY prints `bullet` or
+# `label` + `details` entries — anything else renders as an empty card.
+#
+# Source of truth: raw/optional/{experience,education,awards,certifications}.md
+# (NOT the older CV PDF, whose venues, dates and GPA are out of date).
 cv:
-  name: Albert Einstein
-  label: Scientist
-  email: einstein@example.com
-  location: Princeton, NJ
-  image: ""
-  summary: A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time
+  name: Yoonseok Yeom
+  email: yuemyoun@gmail.com
+  location: Seoul, South Korea
 
   social_networks:
-    - network: X
-      username: AlbertEinstein
     - network: GitHub
-      username: example
+      username: Younsuk11
     - network: LinkedIn
-      username: example
-
-  address:
-    street: 2712 Broadway St
-    city: San Francisco
-    region: California
-    postalCode: CA 94115
-    countryCode: US
+      username: younsuk-yeom78
 
   sections:
-    Education:
-      - institution: University of Zurich
-        location: Zurich, Switzerland
-        url: https://www.uzh.ch/
-        area: Physics
-        studyType: PhD
-        start_date: 1900
-        end_date: 1905
-        score: ""
-        courses: "Theory of Relativity"
-        highlights:
-          - Description 1.
-          - Description 2.
-
-      - institution: Eidgenössische Technische Hochschule
-        location: Zurich, Switzerland
-        area: Physics
-        studyType: Federal teaching diploma
-        start_date: 1896
-        end_date: 1900
-        highlights:
-          - Description 1.
-          - Description 2.
-
     Experience:
-      - company: Institute for Advanced Study, Princeton University
-        position: Professor of Theoretical Physics
-        location: Princeton University, NJ
-        start_date: 1933
-        end_date: 1955
-        summary: Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.
+      - company: LG CNS
+        position: AI Researcher / AI Engineer, Agentic AI Business Team
+        location: Seoul, South Korea
+        start_date: 2026-01
+        end_date: present
         highlights:
-          - Relativity
-          - Description 2.
+          - Research on AI in academia and industry.
+          - "Agentic AI product development: general-purpose prebuilt agents."
+          - MCP tool development.
 
-      - company: California Institute of Technology
-        position: Visiting Professor
-        location: Pasadena, California, US
-        start_date: 1933
-        end_date: 1933
+      - company: Causality Lab, Graduate School of Data Science, Seoul National University
+        position: Graduate Researcher (Industry-Academia Collaborative Research with LG AI Research)
+        location: Seoul, South Korea
+        start_date: 2024-03
+        end_date: 2026-02
+        summary: Advised by Prof. Sanghack Lee.
         highlights:
-          - Description 1.
-          - Description 2.
+          - Causal inference with causal generative models in time-series.
+          - Causal discovery with LLM prior information.
+          - Scalable causal discovery.
 
-      - company: Kaiser Wilhelm Institute for Physics
-        position: Director
-        location: Berlin, Germany
-        start_date: 1917
-        end_date: 1933
-
-      - company: Karl-Ferdinand University
-        position: Professor of Theoretical Physics
-        location: Prague, Czechoslovakia
-        start_date: 1911
-        end_date: 1917
-
-      - company: University of Zurich
-        position: Associate Professor of Theoretical Physics
-        location: Zurich, Switzerland
-        start_date: 1909
-        end_date: 1911
-
-    Volunteer:
-      - company: People's Climate March
-        position: Lead Organizer
-        location: Zurich, Switzerland
-        start_date: 2014-04-01
-        end_date: 2015-07-01
-        summary: Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.
+      - company: LIM Lab, Korea University
+        position: Research Intern
+        location: Seoul, South Korea
+        start_date: 2023-08
+        end_date: 2024-02
+        summary: Advised by Prof. Sungbin Lim.
         highlights:
-          - "Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march."
-          - "Men of the year 2014 by Time magazine"
+          - Participated in LLM-based causal discovery research, contributing through to publication.
+          - Causal representation learning with a human-resource prediction model.
 
-    Awards:
-      - title: Nobel Prize in Physics
-        authors:
-          - "Royal Swedish Academy of Sciences"
-        date: 1921-11-01
-        awarder: Royal Swedish Academy of Sciences
-        url: https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/
-        summary: The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'
+      - company: Korea University
+        position: Undergraduate Research Intern
+        location: Seoul, South Korea
+        start_date: 2022-03
+        end_date: 2022-12
+        summary: Advised by Prof. Yoonjung Joo.
+        highlights:
+          - Research on bioinformatics datasets and preprocessing.
+          - "GeneBert project: built 2D gene expression matrices from Synapse and UKB omics data using PrediXcan weights."
 
-      - title: Max Planck Medal
-        authors:
-          - "German Physical Society"
-        date: 2029
-        awarder: German Physical Society
-        summary: Awarded for outstanding scientific achievement
+      - company: Curigin Inc.
+        position: Researcher, Bioinformatics Team
+        location: Seoul, South Korea
+        start_date: 2021-06
+        end_date: 2022-03
+        highlights:
+          - Developed a scoring and weight-validation algorithm for bi-specific siRNA, fitting efficacy with polynomial linear regression.
+          - Built a web-crawling-based automation system for gene expression pathway analysis on top of the ENRICHR database.
+          - Preprocessed and annotated an siRNA database, mapping RNA/CDS sequences to produce the final mapping output.
+
+    # These are student society activities, not employment and not volunteering.
+    # "Activities" is not one of the section names the al_folio_cv gem has a template
+    # for, so its entries MUST be written as `bullet:` — that is the one shape the
+    # gem's generic renderer prints, and RenderCV accepts it as a BulletEntry.
+    # Writing them as company/position entries here renders an EMPTY card on the
+    # website while still looking fine in the PDF.
+    Activities:
+      - bullet: "**KUBIG — Korea University Data Science & AI Society**, Member and 18th President (Jan 2022 – Jan 2024). Led five ML/DL projects: image super resolution (EDSR, SwinIR, RRDB+), news topic classification (RoBERTa, KoELECTRA), and weather-based prediction tasks. As president, organized the curriculum for incoming members and ran study groups and seminars; members won 12 competition awards during the term."
+      - bullet: "**BEAT — Department of Biomedical Engineering, Korea University**, Biosensor Team Lead (Sep – Dec 2021). Studied biomarkers and biosensors for brain disease diagnosis, and built an experimental database from published papers."
+
+    Education:
+      - institution: Seoul National University
+        area: Data Science
+        studyType: M.S.
+        location: Seoul, South Korea
+        url: https://gsds.snu.ac.kr/
+        start_date: 2024-03
+        end_date: 2026-02
+        highlights:
+          - "GPA: 4.02 / 4.30"
+          - Causality Lab, advised by Prof. Sanghack Lee.
+          - "Research area: causal discovery, causal generative models in time-series."
+
+      - institution: Korea University
+        area: Biomedical Engineering
+        studyType: B.S. in Engineering
+        location: Seoul, South Korea
+        url: https://www.korea.ac.kr/
+        start_date: 2018-03
+        end_date: 2024-02
+        highlights:
+          - "GPA: 4.11 / 4.50"
+          - Interdisciplinary major in Artificial Intelligence.
 
     Publications:
-      - title: Zur Elektrodynamik bewegter Körper
+      - title: Estimating Interventional Outcomes over Time with Causal Normalizing Flow
         authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-06-30
-        url: https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies
-        summary: It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source.
+          - Yoonseok Yeom
+          - Jonghwan Kim
+          - et al.
+        publisher: Uncertainty in Artificial Intelligence (UAI)
+        releaseDate: "2026"
+        # url: — UAI 2026 proceedings link, to be added once published.
+        summary: Co-first author. Accepted at UAI 2026. Joint work with LG AI Research.
 
-      - title: Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt
+      - title: "Breaking Bad: Component-Wise Parent Deletion for Score-Based Causal Discovery"
         authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-03-18
-        url: https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt
-        summary: In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921.
+          - Min Woo Park
+          - Taehui Yun
+          - et al.
+        publisher: Uncertainty in Artificial Intelligence (UAI)
+        releaseDate: "2026"
+        # url: — UAI 2026 proceedings link, to be added once published.
+        #   Only the canonical paper URL belongs here (the code repo is linked from
+        #   /research/breaking-bad/ and from _bibliography/papers.bib instead).
+        summary: Accepted at UAI 2026. Joint work with LG AI Research.
 
-      - title: Die Grundlage der allgemeinen Relativitätstheorie
+      - title: On Incorporating Prior Knowledge Extracted from Large Language Models into Causal Discovery
         authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1916-03-20
-        url: https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie
-        summary: The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914).
+          - Chanhui Lee
+          - Juhyeon Kim
+          - et al.
+        publisher: IEEE Access
+        releaseDate: "2025"
+        url: https://ieeexplore.ieee.org/document/11220238/
 
-    Skills:
-      - name: Physics
-        level: Master
-        icon: fa-solid fa-hashtag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
+    Awards:
+      - title: 3rd Award, 2023 K-DS Conference Hackathon
+        authors:
+          - K-DS Conference Organizing Committee
+        date: 2023-11-30
+        awarder: K-DS Conference Organizing Committee
+        summary: Big-data-based projection of the school-age population, proposing a model more accurate than the cohort-component method used by Statistics Korea.
 
-    Languages:
-      - name: German
-        summary: "Native speaker"
+      - title: Grand Prize, 2020 Korea University Pandemic Blockchain Ideathon
+        authors:
+          - Institute of Cyber Security & Privacy, Korea University
+        date: 2020-11-27
+        awarder: Institute of Cyber Security & Privacy, Korea University
+        summary: '"Vaccination certification and blockchain-based vaccine manufacturing and distribution data" — combining decentralized identifiers with smart contracts for traceability.'
 
-      - name: English
-        summary: "Fluent"
-
-    Interests:
-      - name: Physics
-        icon: fa-solid fa-tag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
+      - title: 3rd Prize, 2020 AI Idea Competition with Cancer Big Data
+        authors:
+          - National Cancer Center
+        date: 2020-11-02
+        awarder: National Cancer Center
+        summary: A model predicting depressive symptoms in cancer patients, using Gower-similarity-based PAM clustering to label depression severity.
 
     Certificates:
-      - name: Machine Learning
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-location-dot
+      - name: Claude Certified Developer – Foundations (valid until 2027-08-03)
+        date: 2026-08-03
+        issuer: Anthropic
+        url: https://www.credly.com/badges/b6c4fb86-ee3c-4bbe-af42-0a2ed979b8f8
 
-      - name: Quantum Computing
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-tag
+      - name: PCCP Python3 Lv.2
+        date: 2025-12-07
+        issuer: Programmers (Grepp Inc.)
 
-      - name: Quantum Information
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-envelope
-
-    Projects:
-      - name: Quantum Computing
-        summary: Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.
-        highlights:
-          - Quantum Teleportation
-          - Quantum Cryptography
-        start_date: 2018-01-01
-        end_date: 2018-01-01
-
-    References:
-      - name: Professor John Doe
-        icon: fa-solid fa-laptop
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
-
-      - name: Professor Jane Smith
-        icon: fa-solid fa-thumbtack
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
+      - name: OPIc English — IH (Intermediate High), valid until 2027-08-30
+        date: 2025-08-31
+        issuer: ACTFL
