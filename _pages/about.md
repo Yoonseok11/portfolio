@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: AI Researcher / AI Engineer at <strong>LG CNS</strong>, Agentic AI Business Team.
+subtitle:
 
 profile:
   align: right
@@ -25,17 +25,16 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I work on **Causal AI** — causal discovery, causal generative models, and causal effect estimation.
+I am an **AI Researcher / AI Engineer at LG CNS**, where I have been part of the Agentic AI Business Team since
+January 2026. I conduct AI research across academia and industry and build agentic AI products, including
+general-purpose prebuilt agents and MCP tools.
 
-Since January 2026 I have been an **AI Researcher / AI Engineer at LG CNS**, on the Agentic AI Business Team,
-where I do research on AI in academia and industry and build agentic AI products — general-purpose prebuilt agents
-and MCP tools.
-
-I completed my **M.S. in Data Science at Seoul National University** (Feb 2026) in the Causality Lab, advised by
-Prof. Sanghack Lee, where my research covered causal inference with causal generative models in time-series, and
-causal discovery — both scalable causal discovery and causal discovery with LLM prior knowledge — much of it in
-collaboration with **LG AI Research**. Before that I received a **B.S. in Engineering from Korea University**
-(Feb 2024), majoring in Biomedical Engineering with an interdisciplinary major in Artificial Intelligence.
+I completed my **M.S. in Data Science at Seoul National University** (Feb 2026) in the Causality Lab under the
+supervision of Prof. Sanghack Lee. My research focused on **Causal AI**, including causal inference using causal
+generative models for time-series data, scalable causal discovery, and causal discovery informed by prior knowledge
+from LLMs. Much of this work was conducted in collaboration with **LG AI Research**. I previously received a
+**B.S. in Engineering from Korea University** (Feb 2024), majoring in Biomedical Engineering and completing an
+interdisciplinary major in Artificial Intelligence.
 
 <style>
   .home-cards .btn {

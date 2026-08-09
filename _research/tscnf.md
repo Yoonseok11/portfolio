@@ -47,6 +47,16 @@ two kinds of parents:
 - $$\mathrm{Pa}^{<}_{\mathcal{G}}(X^j_t)$$ — **time-lagged parents**
 - $$\mathrm{Pa}^{=}_{\mathcal{G}}(X^j_t)$$ — **contemporaneous parents**
 
+<div class="row justify-content-center mt-4 mb-2">
+  <div class="col-12">
+    {% include figure.liquid path="assets/img/research/tscnf/window-causal-graph.png" class="img-fluid rounded z-depth-1" zoomable=true alt="Window causal graph with tau = 3" %}
+  </div>
+</div>
+<div class="caption">
+  An example of a window causal graph with $$\tau = 3$$ highlighting contemporaneous (pink) and time-lagged (red)
+  parents of a target variable (blue).
+</div>
+
 **Target estimand** — the distribution of the future outcome $$Y_t$$ under a hypothetical intervention sequence,
 conditioned on the history:
 
@@ -82,8 +92,7 @@ The target estimand admits the following form:
 
 $$P\!\left(Y_t(\underline{a}_{m+1}) \mid \bar{\mathbf{x}}_m\right) = \int_{\mathbf{x}'_{m+1:t-1}} P\!\left(Y_t \mid do(a_t), \bar{\mathbf{x}}_{t-1}\right) \prod_{k=m+1}^{t-1} P\!\left(\mathbf{x}'_k \mid do(a_k), \bar{\mathbf{x}}_{k-1}\right)$$
 
-This is **analytically intractable**, so we approximate it by **Monte Carlo simulation** with TSCNF, following
-g-computation.
+This is **analytically intractable**, so we approximate it by **Monte Carlo simulation** with TSCNF.
 
 <div class="row justify-content-center mt-4 mb-2">
   <div class="col-12">
@@ -184,22 +193,6 @@ follow a g-computation-style approach that avoids explicit propensity modeling.
   Marginal: $$P(Y_{m+5}(\underline{a}_{m+1}))$$
 </div>
 
-<div style="overflow-x: auto;" markdown="1">
-
-| Metric      | Model     | $$\tau=1$$      | $$\tau=3$$      | $$\tau=5$$      |
-| ----------- | --------- | --------------- | --------------- | --------------- |
-| Mean Dist.  | MSCVAE    | 0.13 (0.02)     | 0.52 (0.04)     | 1.97 (0.03)     |
-|             | G-Net     | **0.09 (0.04)** | **0.05 (0.03)** | 0.09 (0.04)     |
-|             | **TSCNF** | **0.09 (0.01)** | 0.07 (0.02)     | **0.05 (0.02)** |
-| MMD (×10⁻²) | MSCVAE    | 0.95 (0.11)     | 2.05 (0.15)     | 20.15 (0.47)    |
-|             | G-Net     | **0.08 (0.05)** | 0.12 (0.05)     | 0.13 (0.04)     |
-|             | **TSCNF** | 0.09 (0.02)     | **0.06 (0.02)** | **0.05 (0.02)** |
-| Wasserstein | MSCVAE    | 0.24 (0.01)     | 0.70 (0.03)     | 2.04 (0.03)     |
-|             | G-Net     | **0.10 (0.03)** | 0.14 (0.02)     | 0.16 (0.02)     |
-|             | **TSCNF** | **0.10 (0.01)** | **0.11 (0.01)** | **0.11 (0.01)** |
-
-</div>
-
 **History-adjusted query.** TSCNF is comparable or superior to G-Net across linear and non-linear settings. The gap
 widens under **sparser time-lagged structures**: G-Net incorporates all past covariates and treatments without
 filtering, which injects noise, whereas TSCNF selectively attends to the relevant time-lagged parents.
@@ -215,19 +208,8 @@ filtering, which injects noise, whereas TSCNF selectively attends to the relevan
 
 ### B. Tumor growth — PK–PD simulation
 
-Point accuracy holds as the prediction horizon $$k$$ grows.
-
-<div class="row justify-content-center mt-4 mb-2">
-  <div class="col-12">
-    {% include figure.liquid path="assets/img/research/tscnf/tumor-trajectories.png" class="img-fluid rounded z-depth-1" zoomable=true alt="Tumor volume trajectories under different treatment strategies" %}
-  </div>
-</div>
-<div class="caption">
-  Tumor volume trajectories sampled from TSCNF for a single patient under various treatment strategies.
-</div>
-
-Normalized RMSE (%) at each horizon $$k$$ ($$\gamma_c = 5,\ \gamma_d = 5$$; best in **bold**, second best
-<u>underlined</u>):
+Point accuracy holds as the prediction horizon $$k$$ grows. Normalized RMSE (%) at each horizon
+($$\gamma_c = 5,\ \gamma_d = 5$$; best in **bold**, second best <u>underlined</u>):
 
 <div style="overflow-x: auto;" markdown="1">
 
@@ -239,6 +221,15 @@ Normalized RMSE (%) at each horizon $$k$$ ($$\gamma_c = 5,\ \gamma_d = 5$$; best
 | DoFlow     | 1.01 (0.05)        | 1.54 (0.06)        | 1.90 (0.06)        | 2.19 (0.07)        | 2.40 (0.09)        |
 | **TSCNF**  | <u>0.55 (0.09)</u> | **0.58 (0.10)**    | **0.63 (0.10)**    | **0.67 (0.10)**    | **0.71 (0.11)**    |
 
+</div>
+
+<div class="row justify-content-center mt-4 mb-2">
+  <div class="col-12">
+    {% include figure.liquid path="assets/img/research/tscnf/tumor-trajectories.png" class="img-fluid rounded z-depth-1" zoomable=true alt="Tumor volume trajectories under different treatment strategies" %}
+  </div>
+</div>
+<div class="caption">
+  Tumor volume trajectories sampled from TSCNF for a single patient under various treatment strategies.
 </div>
 
 ## Resources
