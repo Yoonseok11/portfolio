@@ -23,7 +23,9 @@
 | 3    | 정보 구조 설계 (`_research` 컬렉션, 카드, 네비게이션) | ✅ 완료      |
 | 4    | 데모(Einstein) 콘텐츠 제거                            | ✅ 완료      |
 | 5    | `raw/` → 웹사이트 콘텐츠 생성                         | ✅ 완료      |
-| 6    | 검증 및 배포                                          | 🔶 배포 직전 |
+| 6    | 검증 및 배포                                          | ✅ 배포 완료 |
+
+**사이트 공개 중 → <https://younsuk11.github.io/portfolio/>** (2026-08-09 배포, 전 페이지 HTTP 200 확인)
 
 ### 완성된 사이트 구조
 
@@ -61,36 +63,34 @@ rm -f assets/rendercv/rendercv_output/*.typ    # CI와 동일하게 .typ은 지�
 - [x] `bundle exec jekyll build` 경고 없이 성공 (약 1.4초)
 - [x] 내부 링크 무결성 확인 — 깨진 링크 0개
 - [x] `_site/`에 `raw/` 내용이 들어가지 않은 것 확인
-- [ ] GitHub **Settings → Actions → General → Workflow permissions → Read and write**
-- [ ] `main`에 push → `Deploy site` 워크플로 성공 확인
-- [ ] **Settings → Pages → Source: Deploy from a branch → `gh-pages`** (`gh-pages`는 자동 생성, 직접 수정 금지)
-- [ ] 실제 주소 `https://younsuk11.github.io/portfolio/` 접속 확인
-
-### 블로킹 가능성 있는 것
-
-- [ ] **저장소가 private임** — 개인 계정 무료 플랜에서는 GitHub Pages가 private 저장소를 게시하지 못함(Pro 이상 필요).
-      `gh-pages` 브랜치는 생성돼 있지만 실제 사이트가 열리는지 확인 필요. 안 열리면 저장소를 **public으로 전환**
+- [x] GitHub **Settings → Actions → General → Workflow permissions → Read and write**
+- [x] `main`에 push → `Deploy site` 워크플로 성공 (커밋 `c138edc`)
+- [x] **Settings → Pages → Source: `gh-pages`**
+- [x] 실제 주소 접속 확인 — 9개 페이지 + CV PDF 모두 HTTP 200
+- [x] **저장소를 public으로 전환** — 무료 플랜에서 private 저장소는 Pages 게시가 안 되므로 필수였음. 해소됨
 
 ### 링크가 나오면 채울 것
 
-- [ ] **Google Scholar 프로필 ID** — 이름이 아니라 `citations?user=` 뒤의 ID가 필요.
-      [`_data/socials.yml`](../_data/socials.yml)의 `scholar_userid` 주석 해제 후 입력
+- [x] **Google Scholar 프로필 ID** — `czF06eQAAAAJ` ([`_data/socials.yml`](../_data/socials.yml)에 반영).
+      프로필의 **소속(affiliation)이 "Unknown"** 상태이니 Scholar에서 직접 채우는 것을 권장
 - [ ] **UAI 2026 proceedings 링크 2건** (TSCNF, Breaking Bad) — 나오면 아래 세 군데를 함께 수정
   - [`_research/tscnf.md`](../_research/tscnf.md), [`_research/breaking-bad.md`](../_research/breaking-bad.md) — `paper_pending:` → `paper_url:`
   - [`_bibliography/papers.bib`](../_bibliography/papers.bib) — `html = {...}` 추가
   - [`_data/cv.yml`](../_data/cv.yml) — 주석 처리된 `# url:` 해제
 - [ ] **TSCNF 코드 저장소** — 공개되면 `_research/tscnf.md`의 `code_pending:` → `code_url:`, `papers.bib`에 `code = {...}`
 
-### 콘텐츠 판단이 필요한 것
+### 콘텐츠 판단 — 모두 확인 완료 (2026-08-09)
 
-- [ ] **LG CNS 업무 서술의 공개 범위** — 사내 정보에 해당하는 부분이 없는지 본인 확인
-      (현재 기재: AI 리서치 / Prebuilt Agent / MCP tool — 일반적 직무 설명 수준)
-- [ ] **Meta-Reviewer Helper의 "My contribution" 절 유지 여부** — 논문 3편은 기여 내용을 싣지 않기로 확정했으나,
-      이건 논문이 아니라 팀 개발 프로젝트라 별도 결정이 필요. 현재는 **유지** 중
-- [ ] **프로젝트 페이지 기술 스택** — PyTorch/TensorFlow 등 프레임워크가 원본 자료 어디에도 명시돼 있지 않아
-      추측해서 적지 않았음. 적으려면 직접 확인 필요
+- [x] **LG CNS 업무 서술의 공개 범위** — 문제 없음으로 확인
+- [x] **Meta-Reviewer Helper의 "My contribution" 절** — 유지하기로 확정 (논문 3편만 기여 내용을 싣지 않음)
+- [x] **프로젝트 페이지 기술 스택** — 원본에 근거가 없는 프레임워크는 적지 않고 비워두는 것으로 확정
 - [ ] **Breaking Bad 논문을 이력서 원본에도 추가** — `raw/optional/bio/`의 CV·포트폴리오 PDF에 이 논문이 없음
-      (웹사이트에는 이미 반영됨)
+      (웹사이트와 `_data/cv.yml`에는 이미 반영됨. 원본 PDF를 갱신할 때 함께 넣을 것)
+
+### 워크플로 알림
+
+- [ ] `update-citations`는 월/수/금에 실행됨. Scholar ID를 넣었으므로 이제 동작할 수 있으나,
+      성공하면 [`_data/citations.yml`](../_data/citations.yml)을 자동 커밋한다. 원치 않으면 워크플로를 끌 것
 
 ### 미룬 것 (의도적)
 

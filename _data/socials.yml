@@ -6,11 +6,8 @@ github_username: Younsuk11
 linkedin_username: younsuk-yeom78 # https://www.linkedin.com/in/younsuk-yeom78/
 rss_icon: false # comment this line to hide the RSS icon
 
+scholar_userid: czF06eQAAAAJ # https://scholar.google.com/citations?user=czF06eQAAAAJ
 
-# TODO: scholar_userid needs the Google Scholar *profile ID*, not the display name.
-# Open your Scholar profile and copy the value after `user=` in the URL, e.g.
-#   https://scholar.google.com/citations?user=XXXXXXXXXXXX  ->  scholar_userid: XXXXXXXXXXXX
-# scholar_userid:
 
 # TODO: add once available
 # cv_pdf: # path to your CV PDF, placed in assets/pdf/
