@@ -36,38 +36,34 @@ interventional samples, allowing simulation of outcome trajectories under altern
 ## Problem setup
 
 We consider a multivariate time-series $$\mathcal{X}=(\mathbf{X}_1,\ldots,\mathbf{X}_T)\in\mathbb{R}^{T\times d}$$
-whose data-generating process follows a **Markovian structural causal model (SCM)**. At each time step, every
-component is generated from its causal parents and a corresponding exogenous disturbance, with the disturbances
-jointly independent. We further assume **causal stationarity**: the causal relationships governing the process are
-invariant under shifts in time, so the same dependency pattern recurs throughout the series.
+under two assumptions:
 
-With a maximum time lag of $$\tau$$, this recurring structure can be summarized by a **window causal graph**
-$$\mathcal{G}$$ over a window of length $$\tau+1$$. The graph is induced by the SCM and assumed to be given. For a
-variable $$X^j_t$$, it distinguishes two kinds of parents:
+- Its data-generating process follows a **Markovian SCM**, with jointly independent exogenous variables.
+- It is **causally stationary**, so its causal structure is invariant over time.
+
+**Window causal graph.** We assume that the SCM-induced graph $$\mathcal{G}$$ is given. For each variable
+$$X^j_t$$, it distinguishes:
 
 - $$\mathrm{Pa}^{<}_{\mathcal{G}}(X^j_t)$$ — **time-lagged parents**
 - $$\mathrm{Pa}^{=}_{\mathcal{G}}(X^j_t)$$ — **contemporaneous parents**
 
 <div class="row justify-content-center mt-4 mb-2">
-  <div class="col-12">
+  <div class="col-12 col-md-9 col-lg-8">
     {% include figure.liquid path="assets/img/research/tscnf/window-causal-graph.png" class="img-fluid rounded z-depth-1" zoomable=true alt="Window causal graph with tau = 3" %}
   </div>
 </div>
 <div class="caption">
-  An example of a window causal graph with $$\tau = 3$$ highlighting contemporaneous (pink) and time-lagged (red)
+  An example of a window causal graph highlighting contemporaneous (pink) and time-lagged (red)
   parents of a target variable (blue).
 </div>
 
-Suppose that the history $$\bar{\mathbf{x}}_m=(\mathbf{x}_1,\ldots,\mathbf{x}_m)$$ has been observed through time
-$$m$$ and that a treatment sequence $$\underline{a}_{m+1}=(a_{m+1},\ldots,a_t)$$ is imposed thereafter. Our target
-estimand is the interventional distribution of the future outcome $$Y_t$$ under this treatment sequence:
+**Target estimand.** Given an observed history $$\bar{\mathbf{x}}_m$$ and a subsequent treatment sequence
+$$\underline{a}_{m+1}$$, we estimate the interventional distribution of a future outcome:
 
 $$P\!\left(Y_t(\underline{a}_{m+1}) \mid \bar{\mathbf{x}}_m\right), \qquad t \geq m+1$$
 
-More generally, the framework supports both **conditional queries**, obtained by conditioning on the full observed
-history or selected pre-intervention information, and **marginal queries**, obtained by integrating over that
-information. The experiments below evaluate two representative cases: the marginal query
-$$P(Y_t(\underline{a}_{m+1}))$$ and the history-adjusted query shown above.
+This formulation encompasses **conditional queries** given pre-intervention information and **marginal queries**
+that integrate it out. The experiments below consider both marginal and history-adjusted queries.
 
 ## Method
 
