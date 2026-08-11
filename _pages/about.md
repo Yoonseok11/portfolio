@@ -30,9 +30,9 @@ January 2026. I conduct AI research across academia and industry and build agent
 general-purpose prebuilt agents and MCP tools.
 
 I completed my **M.S. in Data Science at Seoul National University** (Feb 2026) in the Causality Lab under the
-supervision of Prof. Sanghack Lee. My research focused on **Causal AI**, including causal inference using causal
-generative models for time-series data, scalable causal discovery, and causal discovery informed by prior knowledge
-from LLMs. Much of this work was conducted in collaboration with **LG AI Research**. I previously received a
+supervision of [Prof. Sanghack Lee](https://www.sanghacklee.me/). My research focused on **Causal AI**, including
+causal inference using causal generative models for time-series data, scalable causal discovery, and causal discovery
+informed by prior knowledge from LLMs. Much of this work was conducted in collaboration with **LG AI Research**. I previously received a
 **B.S. in Engineering from Korea University** (Feb 2024), majoring in Biomedical Engineering and completing an
 interdisciplinary major in Artificial Intelligence.
 

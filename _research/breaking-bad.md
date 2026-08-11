@@ -8,7 +8,7 @@ venue: UAI 2026
 year: 2026
 authors: Min Woo Park*, Taehui Yun*, YoungIn Jang, Yoonseok Yeom, Jonghwan Kim, Jiyeon Kang, Songseong Kim, Hyemin Jung, Sangmin Lee, Jongseong Jang, Sanghack Lee
 code_url: https://github.com/LGAI-Research/breaking-bad
-paper_pending: proceedings pending
+paper_url: https://openreview.net/forum?id=oxdOxCxgCu#discussion
 ---
 
 **Breaking Bad: Component-Wise Parent Deletion for Score-Based Causal Discovery**

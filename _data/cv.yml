@@ -119,7 +119,7 @@ cv:
           - et al.
         publisher: Uncertainty in Artificial Intelligence (UAI)
         releaseDate: "2026"
-        # url: — UAI 2026 proceedings link, to be added once published.
+        url: https://openreview.net/forum?id=EuwsW9vL8S
         summary: Co-first author. Accepted at UAI 2026. Joint work with LG AI Research.
 
       - title: "Breaking Bad: Component-Wise Parent Deletion for Score-Based Causal Discovery"
@@ -129,9 +129,7 @@ cv:
           - et al.
         publisher: Uncertainty in Artificial Intelligence (UAI)
         releaseDate: "2026"
-        # url: — UAI 2026 proceedings link, to be added once published.
-        #   Only the canonical paper URL belongs here (the code repo is linked from
-        #   /research/breaking-bad/ and from _bibliography/papers.bib instead).
+        url: https://openreview.net/forum?id=oxdOxCxgCu
         summary: Accepted at UAI 2026. Joint work with LG AI Research.
 
       - title: On Incorporating Prior Knowledge Extracted from Large Language Models into Causal Discovery

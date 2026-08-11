@@ -7,7 +7,7 @@ importance: 1
 venue: UAI 2026
 year: 2026
 authors: Yoonseok Yeom*, Jonghwan Kim*, Taehui Yun, Juhyun Lyu, Jung-Hee Kim, Sangmin Lee, Jinseok Yang, Hyemin Jung, Woohyung Lim, Sanghack Lee
-paper_pending: proceedings pending
+paper_url: https://openreview.net/forum?id=EuwsW9vL8S#discussion
 code_pending: release planned
 ---
 
