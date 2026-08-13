@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx --yes playwright@latest screenshot --browser=chromium --viewport-size=\"1280,1400\" --full-page --wait-for-timeout=2500 \"http://127.0.0.1:4321/portfolio/research/\" research-desktop.png)",
+      "Bash(npx --yes playwright@latest screenshot --browser=chromium --viewport-size=\"420,900\" --full-page --wait-for-timeout=2500 \"http://127.0.0.1:4321/portfolio/research/\" research-mobile.png)",
+      "Bash(npx --yes playwright@latest screenshot --browser=chromium --viewport-size=\"1280,1300\" --wait-for-timeout=1800 \"http://127.0.0.1:4321/portfolio/cv/\" shot-cv.png)",
+      "Bash(~/miniconda3/bin/python3 -)"
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 # 포트폴리오 사이트 구축 TODO
 
-이 저장소(`Younsuk11/portfolio`)를 al-folio v1 스타터에서 **개인 포트폴리오 사이트**로 바꾸는 작업 기록입니다.
+이 저장소(`Yoonseok11/portfolio`)를 al-folio v1 스타터에서 **개인 포트폴리오 사이트**로 바꾸는 작업 기록입니다.
 
 목표 구조 — **모두 구현됨**:
 
@@ -25,7 +25,7 @@
 | 5    | `raw/` → 웹사이트 콘텐츠 생성                         | ✅ 완료      |
 | 6    | 검증 및 배포                                          | ✅ 배포 완료 |
 
-**사이트 공개 중 → <https://younsuk11.github.io/portfolio/>** (2026-08-09 배포, 전 페이지 HTTP 200 확인)
+**사이트 공개 중 → <https://yoonseok11.github.io/portfolio/>** (2026-08-09 배포, 전 페이지 HTTP 200 확인)
 
 ### 완성된 사이트 구조
 
