@@ -37,6 +37,14 @@ informed by prior knowledge from LLMs. Much of this work was conducted in collab
 interdisciplinary major in Artificial Intelligence.
 
 <style>
+  .profile {
+    width: 25% !important;
+  }
+  @media (max-width: 575.98px) {
+    .profile {
+      width: 100% !important;
+    }
+  }
   .home-cards .btn {
     display: inline-block;
     margin: 0 0.4rem 0.4rem 0;
